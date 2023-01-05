@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "dto.Product" %>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
+<%@ page import = "dao.ProductRepository" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,8 @@
 </div>
 <%
 	String id = request.getParameter("id");
-	Product product = productDAO.getProductById(id);
+	ProductRepository dao = ProductRepository.getInstance();
+	Product product = dao.getProductById(id);
 %>
 <div class="container">
 	<div class="row">
@@ -28,7 +30,9 @@
 			<p><b>상품 코드 : </b><span class="badge badge-danger"><%= product.getProductId() %></span></p>
 			<p><b>제조사 : </b><%= product.getManufacturer() %></p>
 			<p><b>분류 : </b><%= product.getCategory() %></p>
-			<p><b>재고 수 : </b><%= product.getUnitsInStock() %><h4><%= product.getUnitPrice() %>원</h4></p>
+			<p><b>재고 수 : </b><fmt:formatNumber value="<%= product.getUnitsInStock() %>" pattern="#,###"/></p>
+			<h4><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</h4>
+			<br>
 			<p><a href="#" class="btn btn-info">상품 주문 &raquo;</a>&emsp;<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a></p>
 		</div>
 	</div>

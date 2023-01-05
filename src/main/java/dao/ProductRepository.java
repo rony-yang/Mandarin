@@ -50,21 +50,15 @@ public class ProductRepository {
 		Product productById = null;
 		for (int i = 0; i < listOfProducts.size(); i++) {
 			Product product = listOfProducts.get(i);
-//			if (product != null && product.getProductId() != null && product.getProductId().equals(productId)) {
-			if (product != null) {
-				if (product.getProductId() != null) {
-					if (product.getProductId().equals(productId)) {
-						productById = product;
-						break;
-					}
-				}
-				
+			if (product != null && product.getProductId() != null && product.getProductId().equals(productId)) {
+				productById = product;
+				break;
 			}
 		}
 		return productById;
 	}
 	
-	public void addProduct(Product product) {
+	public void addProduct(Product product) {	// 신규 상품 데이터를 저장하는 메소드
 		listOfProducts.add(product);
 	}
 }
