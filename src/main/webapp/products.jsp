@@ -9,9 +9,17 @@
 <head>
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
+<style>
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <title>상품 목록</title>
 </head>
-<body>
+<body style="font-family: 'IBMPlexSansKR-Regular';">
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
@@ -29,6 +37,7 @@
 					Product product = listOfProducts.get(i);
 			%>
 			<div class="col-md-4">
+				<img src="./images/<%= product.getFilename()%>" style="width:100%">
 				<h3><%= product.getPname() %></h3>
 				<p><%= product.getDescription() %></p>
 				<p><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</p>

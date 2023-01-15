@@ -2,18 +2,28 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "dto.Product" %>
 <%@ page import = "dao.ProductRepository" %>
+<%@ page import = "com.oreilly.servlet.*" %>
+<%@ page import = "com.oreilly.servlet.multipart.*" %>
+<%@ page import = "java.util.*" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 
+	String filename = "";
+	String realFolder = "C:\\eclipse\\eclipse_web_work\\ShoppingMall\\src\\main\\webapp\\images"; // 이미지 절대 경로
+	int MaxSize = 5 * 1024 * 1024; // 최대 업로드 파일 크기 5MB
+	String encType = "UTF-8"; // 인코딩 유형
+
+	MultipartRequest multi = new MultipartRequest(request, realFolder, MaxSize, encType, new DefaultFileRenamePolicy());
+	
 	// 내가 입력한 값을 받는 거라 String으로 선언
-	String productId = request.getParameter("productId");
-	String name = request.getParameter("name");
-	String unitPrice = request.getParameter("unitPrice");
-	String description = request.getParameter("description");
-	String manufacturer = request.getParameter("manufacturer");
-	String category = request.getParameter("category");
-	String unitInStock = request.getParameter("unitInStock");
-	String condition = request.getParameter("condition");
+	String productId = multi.getParameter("productId");
+	String name = multi.getParameter("name");
+	String unitPrice = multi.getParameter("unitPrice");
+	String description = multi.getParameter("description");
+	String manufacturer = multi.getParameter("manufacturer");
+	String category = multi.getParameter("category");
+	String unitInStock = multi.getParameter("unitInStock");
+	String condition = multi.getParameter("condition");
 	
 	Integer price;
 	
@@ -31,6 +41,10 @@
 		stock = Long.valueOf(unitInStock);
 	}
 	
+	Enumeration files = multi.getFileNames(); // 이미지 넣기 위해 사용
+	String fname = (String) files.nextElement();
+	String fileName = multi.getFilesystemName(fname);
+	
 	ProductRepository dao = ProductRepository.getInstance();
 	
 	Product newProduct = new Product();
@@ -42,6 +56,7 @@
 	newProduct.setCategory(category);
 	newProduct.setUnitsInStock(stock);
 	newProduct.setCondition(condition);
+	newProduct.setFilename(filename);
 	
 	dao.addProduct(newProduct);
 	response.sendRedirect("products.jsp");

@@ -1,21 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
+<style>
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <title>Welcome</title>
 </head>
-<body>
+<body style="font-family: 'IBMPlexSansKR-Regular';">
 	<%@ include file="menu.jsp" %>	
-	<%! String greeting = "쇼핑몰에 오신 것을 환영합니다";
-	String tagline = "Welcome to Web Market!";%>
+	<%! String greeting = "Welcome to Mandarin Shopping Mall";
+	String tagline = "이곳은 전자제품을 판매하는 쇼핑몰입니다";%>
 	
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">
+			<h1 class="display-3" style="font-size:350%; text-align: center; font-weight: bold;">
 				<%= greeting %>
 			</h1>
 		</div>
@@ -26,23 +35,25 @@
 			<div class="text-center">
 				<h3>
 					<%= tagline %>
+					<br>
 				</h3>
 				<%
-					response.setIntHeader("Refresh", 5);
-					Date day = new java.util.Date();
-					String am_pm;
-					int hour = day.getHours();
-					int minute = day.getMinutes();
-					int second = day.getSeconds();
-						if (hour /12 == 0) {
-							am_pm = "AM";
-						} else {
-							am_pm = "PM";
-							hour = hour-12;
-						}
-					String CT = hour + ":" + minute + ":" + second + " " + am_pm; 
-					out.println("현재 접속 시간 : " + CT + "\n");		
+					response.setIntHeader("Refresh", 5); // 5초마다 자동 새로고침
+
+					Date today = new Date();
+					SimpleDateFormat date = new SimpleDateFormat("yyyy년 M월 d일");
+					SimpleDateFormat time = new SimpleDateFormat("a h시 m분 s초");
 				%>
+				<br>
+				<%
+					out.println(date.format(today));
+				%>
+				<br>
+				<%	
+					out.println(time.format(today));
+				%>
+				<br><br>
+				<p>이 페이지는 5초마다 자동 새로고침 됩니다.</p>
 			</div>
 			<hr>
 		</div>

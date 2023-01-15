@@ -4,10 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>상품 등록</title>
 </head>
-<body>
+<body style="font-family: 'IBMPlexSansKR-Regular';">
 <%@ include file="menu.jsp" %>	
 <div class="jumbotron">
 	<div class="container">
@@ -15,7 +23,7 @@
 	</div>
 </div>
 <div class="container">
-	<form name="newProduct" action="./processAddProduct.jsp" class="form-horizontal" method="post">
+	<form name="newProduct" action="./processAddProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="form-group row">
 			<label class="col-sm-2">상품 코드</label>
 			<div class="col-sm-3">
@@ -64,6 +72,12 @@
 				<input type="radio" name="condition" value="New">&nbsp;신규 제품&emsp;
 				<input type="radio" name="condition" value="Old">&nbsp;중고 제품&emsp;
 				<input type="radio" name="condition" value="Refurbished">&nbsp;재생 제품
+			</div>
+		</div>
+		<div class="form-grkup row">
+			<label class="col-sm-2">이미지</label>
+			<div class="col-sm-5">
+				<input type="file" name="productImage" class="form-control">
 			</div>
 		</div>
 		<div class="form-group row">
