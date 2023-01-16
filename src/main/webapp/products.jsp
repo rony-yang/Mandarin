@@ -27,17 +27,19 @@
 		</div>
 	</div>
 	<%
+		//싱글톤 객체사용
 		ProductRepository dao = ProductRepository.getInstance();
+		//상품목록 가져옴
 		ArrayList<Product> listOfProducts = dao.getAllProducts();
 	%>
 	<div class="container">
-		<div class="row" align="center">
+		<div class="row" align="center">	
 			<%
 				for (int i=0; i<listOfProducts.size(); i++) {
 					Product product = listOfProducts.get(i);
 			%>
 			<div class="col-md-4">
-				<img src="./images/<%= product.getFilename()%>" style="width:100%">
+				<img src="./images/<%=product.getProductId()%>.png" alt="상품사진" style="width:100%">
 				<h3><%= product.getPname() %></h3>
 				<p><%= product.getDescription() %></p>
 				<p><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</p>

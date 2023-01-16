@@ -32,17 +32,42 @@
 %>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
-			<img src="./images/<%= product.getFilename()%>" style="width:100%">
+		<div class="col-md-5">
+			<img alt="상품 사진" style="width:100%" src="./images/<%=product.getFilename()%>">
 		</div>
 		<div class="col-md-6">
 			<h3><%= product.getPname() %></h3>
 			<p><%= product.getDescription() %></p>
-			<p><b>상품 코드 : </b><span class="badge badge-danger"><%= product.getProductId() %></span></p>
-			<p><b>제조사 : </b><%= product.getManufacturer() %></p>
-			<p><b>분류 : </b><%= product.getCategory() %></p>
-			<p><b>재고 수 : </b><fmt:formatNumber value="<%= product.getUnitsInStock() %>" pattern="#,###"/></p>
-			<h4><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</h4>
+			<table>
+				<tr>
+					<td><b>상품 코드</b></td>
+					<td><td>
+					<td><span class="badge badge-danger"><%= product.getProductId() %></span></td>
+				</tr>
+				<tr>
+					<td><b>제조사</b></td>
+					<td>&ensp;<td>
+					<td><%= product.getManufacturer() %></td>
+				</tr>
+				<tr>
+					<td><b>분  류</b></td>
+					<td>&ensp;<td>
+					<td><%= product.getCategory() %></td>
+				</tr>
+				<tr>
+					<td><b>재고수</b></td>
+					<td>&ensp;<td>
+					<td><fmt:formatNumber value="<%= product.getUnitsInStock() %>" pattern="#,###"/></td>
+				</tr>
+				<tr>
+					<td><b>상  태</b></td>
+					<td>&ensp;<td>
+					<td><%= product.getCondition() %></td>
+				</tr>
+			</tbody>
+			</table>
+			<br>
+			<h4><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</h4>		
 			<br>
 			<p><a href="#" class="btn btn-info">상품 주문 &raquo;</a>&emsp;<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a></p>
 		</div>

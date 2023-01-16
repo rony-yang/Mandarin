@@ -1,3 +1,3 @@
 <footer class="container">
-	<p>&copy; WebMarket</p>
+	<p>&copy; Mandarin Shopping Mall</p>
 </footer>
