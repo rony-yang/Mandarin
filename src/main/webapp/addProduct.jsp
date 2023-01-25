@@ -50,18 +50,6 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-2">제조사</label>
-			<div class="col-sm-3">
-				<input type="text" name="manufacturer" class="form-control" />
-			</div>
-		</div>
-		<div class="form-group row">
-			<label class="col-sm-2">분류</label>
-			<div class="col-sm-3">
-				<input type="text" name="category" class="form-control" />
-			</div>
-		</div>
-		<div class="form-group row">
 			<label class="col-sm-2">재고 수</label>
 			<div class="col-sm-3">
 				<input type="text" name="unitInStock" class="form-control" />
@@ -70,9 +58,8 @@
 		<div class="form-group row">
 			<label class="col-sm-2">상태</label>
 			<div class="col-sm-5">
-				<input type="radio" name="condition" value="신규 제품">&nbsp;신규 제품&emsp;
-				<input type="radio" name="condition" value="중고 제품">&nbsp;중고 제품&emsp;
-				<input type="radio" name="condition" value="재생 제품">&nbsp;재생 제품
+				<input type="radio" name="condition" value="신규 제품">&nbsp;정상 제품&emsp;
+				<input type="radio" name="condition" value="재생 제품">&nbsp;할인 제품
 			</div>
 		</div>
 		<div class="form-group row">

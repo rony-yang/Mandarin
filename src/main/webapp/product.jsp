@@ -45,16 +45,6 @@
 					<td><span class="badge badge-danger"><%= product.getProductId() %></span></td>
 				</tr>
 				<tr>
-					<td><b>제조사</b></td>
-					<td>&ensp;<td>
-					<td><%= product.getManufacturer() %></td>
-				</tr>
-				<tr>
-					<td><b>분  류</b></td>
-					<td>&ensp;<td>
-					<td><%= product.getCategory() %></td>
-				</tr>
-				<tr>
 					<td><b>재고수</b></td>
 					<td>&ensp;<td>
 					<td><fmt:formatNumber value="<%= product.getUnitsInStock() %>" pattern="#,###"/></td>

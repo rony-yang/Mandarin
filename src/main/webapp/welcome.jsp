@@ -19,13 +19,17 @@
 </head>
 <body style="font-family: 'IBMPlexSansKR-Regular';">
 	<%@ include file="menu.jsp" %>	
-	<%! String greeting = "Welcome to Mandarin Shopping Mall";
-	String tagline = "이곳은 전자제품을 판매하는 쇼핑몰입니다";%>
+	<%! String greeting1 = "Welcome to";
+		String greeting2 = "Mandarin Shopping Mall";
+		String tagline = "이곳은 과일을 판매하는 쇼핑몰입니다";%>
 	
 	<div class="jumbotron">
 		<div class="container">
+			<h3 class="text-center">
+				<%= greeting1 %>
+			</h3>
 			<h1 class="display-3" style="font-size:350%; text-align: center; font-weight: bold;">
-				<%= greeting %>
+				<%= greeting2 %>
 			</h1>
 		</div>
 	</div>
@@ -33,10 +37,16 @@
 	<main role="main">
 		<div class="container">
 			<div class="text-center">
+			<br>
+			<br>
 				<h3>
 					<%= tagline %>
 					<br>
 				</h3>
+				<br>
+				<br>
+				<br>
+				
 				<%
 					response.setIntHeader("Refresh", 5); // 5초마다 자동 새로고침
 

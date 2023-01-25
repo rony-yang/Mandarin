@@ -9,10 +9,8 @@ public class Product implements Serializable {
 	private String pname;			// 상품명
 	private Integer unitPrice;		// 상품 가격
 	private String description;		// 상품 설명
-	private String manufacturer;	// 제조사
-	private String category; 		// 분류
 	private long unitsInStock;		// 재고 수
-	private String condition;		// 신상품 or 중고품 or 재생품
+	private String condition;		// 정상제품 or 할인제품
 	private String filename;		// 이미지 파일명
 	private int quantity;			// 장바구니에 담은 개수
 
@@ -56,22 +54,6 @@ public class Product implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getManufacturer() {
-		return manufacturer;
-	}
-
-	public void setManufacturer(String manufacturer) {
-		this.manufacturer = manufacturer;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public long getUnitsInStock() {

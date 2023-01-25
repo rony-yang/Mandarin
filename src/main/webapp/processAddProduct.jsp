@@ -20,26 +20,12 @@
 	// DefaultFileRenamePolicy() : 똑같은 이름을 가진 파일이 존재한다면 파일명(default)에 1, 2, 3 으로 붙게 해주는 클래스
 	MultipartRequest multi = new MultipartRequest(request, realFolder, MaxSize, encType, new DefaultFileRenamePolicy());
 	
-	/*
-	request.setCharacterEncoding("UTF-8");
 	// 내가 입력한 값을 받는 거라 String으로 선언
-	String productId = request.getParameter("productId");
-	String name = request.getParameter("name");
-	String unitPrice = request.getParameter("unitPrice");
-	String description = request.getParameter("description");
-	String manufacturer = request.getParameter("manufacturer");
-	String category = request.getParameter("category");
-	String unitInStock = request.getParameter("unitInStock");
-	String condition = request.getParameter("condition");
-	*/
-	
 	// request가 아닌 multi로 값을 받는다 - 폼에서 전송한 파라미터의 이름을 인자로 받아서 그 값을 반환
 	String productId = multi.getParameter("productId");
 	String name = multi.getParameter("name");
 	String unitPrice = multi.getParameter("unitPrice");
 	String description = multi.getParameter("description");
-	String manufacturer = multi.getParameter("manufacturer");
-	String category = multi.getParameter("category");
 	String unitInStock = multi.getParameter("unitInStock");
 	String condition = multi.getParameter("condition");
 	
@@ -71,8 +57,6 @@
 	newProduct.setPname(name);
 	newProduct.setUnitPrice(price);
 	newProduct.setDescription(description);
-	newProduct.setManufacturer(manufacturer);
-	newProduct.setCategory(category);
 	newProduct.setUnitsInStock(stock);
 	newProduct.setCondition(condition);
 	//이미지 저장 부분
