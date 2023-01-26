@@ -39,11 +39,15 @@
 					Product product = listOfProducts.get(i);
 			%>
 			<div class="col-md-4">
-				<img src="./images/<%=product.getProductId()%>.png" alt="상품사진" style="width:100%">
+				<img src="./resources/images/<%=product.getProductId()%>.png" alt="상품사진" style="width:100%">
+				<br>
+				<br>
 				<h3><%= product.getPname() %></h3>
 				<p><%= product.getDescription() %></p>
 				<p><fmt:formatNumber value="<%= product.getUnitPrice() %>" pattern="#,###"/>원</p>
 				<p><a href="./product.jsp?id=<%= product.getProductId() %>" class="btn btn-secondary" role="button">상세 정보 &raquo;</a></p>
+				<br>
+				<br>
 			</div>
 			<%
 				}

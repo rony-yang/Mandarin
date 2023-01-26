@@ -22,13 +22,13 @@ public class ProductRepository {
 
 		Product tomato = new Product("P1235", "토마토", 7980);
 		tomato.setDescription("과즙이 많고 아삭아삭 씹는 맛이 좋은 봄/여름철 계절 별미인 찰토마토입니다.");
-		tomato.setUnitsInStock(300);
+		tomato.setUnitsInStock(1300);
 		tomato.setCondition("할인 제품");
 		tomato.setFilename("P1235.png");
 
 		Product strawberry = new Product("P1236", "딸기", 19900);
 		strawberry.setDescription("과즙이 많고 상쾌하고 시원한 식감이 특징인 우리나라 딸기입니다.");
-		strawberry.setUnitsInStock(200);
+		strawberry.setUnitsInStock(2000);
 		strawberry.setCondition("정상 제품");
 		strawberry.setFilename("P1236.png");
 

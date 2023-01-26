@@ -33,7 +33,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<img alt="상품 사진" style="width:100%" src="./images/<%=product.getFilename()%>">
+			<img alt="상품 사진" style="width:100%" src="./resources/images/<%=product.getFilename()%>">
 		</div>
 		<div class="col-md-6">
 			<h3><%= product.getPname() %></h3>
@@ -45,12 +45,12 @@
 					<td><span class="badge badge-danger"><%= product.getProductId() %></span></td>
 				</tr>
 				<tr>
-					<td><b>재고수</b></td>
+					<td><b>재고</b></td>
 					<td>&ensp;<td>
 					<td><fmt:formatNumber value="<%= product.getUnitsInStock() %>" pattern="#,###"/></td>
 				</tr>
 				<tr>
-					<td><b>상  태</b></td>
+					<td><b>상태</b></td>
 					<td>&ensp;<td>
 					<td><%= product.getCondition() %></td>
 				</tr>
